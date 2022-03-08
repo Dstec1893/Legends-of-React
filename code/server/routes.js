@@ -28,6 +28,19 @@ routes
 
     })
 
-     router.get("/article/:id", (req, res) => {
+
+    .get("/article/:id", (req, res) => {
+
     let myId = req.params.id;
+    
+    /*console.log(req.params);*/
+
+    /*let command = "select * from article where id = "+ myId;*/
+    
+    /*console.log(command);*/
+    
+    db.all(
+                     "select * from article where id = "+ myId,
+                     (err, rows) => res.json(rows)
+          );
 })

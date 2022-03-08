@@ -18,7 +18,7 @@ function App() {
         <Route exact={true} path="/leadstory" element={<leadstory/>}/>
         <Route exact={true} path="/articles" element={<Articles/>}/>
         <Route exact={true} path="/article/:id" element={<Article/>}/>
-        <Route path="*" element={() => <p>Page Not Found</p>} />
+        <Route path="*" element={<p>Page Not Found</p>} />
       </Routes>
     </>
 );
