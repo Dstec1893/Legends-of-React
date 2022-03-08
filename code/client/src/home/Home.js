@@ -1,9 +1,14 @@
 import './Home.css';
+import Leadstory from './../leadstory/Leadstory'
 
 export default function Home() {
-    return (
+
+    return (<div>
         <h1 className="Home_title">
-            My Online Newspaper !!
+            Weekly pieces
         </h1>
-    );
+
+        <Leadstory/>
+
+    </div>);
 }

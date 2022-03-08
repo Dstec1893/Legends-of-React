@@ -11,6 +11,15 @@ routes
         res.json("Hello world!!");
     })
 
+    .get("/leadstory", (req, res) => {
+            db.all(
+                     "select * from article order by id desc limit 3",
+                     (err, rows) => res.json(rows)
+          );
+
+    })
+
+
     .get("/articles", (req,res) => {
             db.all(
                      "select * from article",
@@ -18,3 +27,7 @@ routes
           );
 
     })
+
+     router.get("/article/:id", (req, res) => {
+    let myId = req.params.id;
+})
