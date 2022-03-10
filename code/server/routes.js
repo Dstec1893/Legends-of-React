@@ -6,6 +6,7 @@ const db = new sqlite3.Database('data/ecoalDB');
 
 module.exports = routes;
 
+
 routes
     .get("/", (req, res) => {
         res.json("Hello world!!");
@@ -18,3 +19,5 @@ routes
           );
 
     })
+
+    
