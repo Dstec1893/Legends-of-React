@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from "axios";
-import {useNavigate, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {useCookies, withCookies} from 'react-cookie';
 
 function FormLogin(props) {
@@ -29,7 +29,6 @@ function FormLogin(props) {
 }
 
 function Login() {
-    let navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies(['login']);
     const usernameRef = React.createRef();
     const emailRef = React.createRef();
@@ -57,7 +56,6 @@ function Login() {
     }
 
     async function onSignin(e) {
-        
         e.preventDefault();
         const user = {
             username: e.target.username.value,

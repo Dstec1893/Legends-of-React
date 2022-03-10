@@ -10,10 +10,10 @@ const jwt = require('jsonwebtoken');
 // si ok => next
 // sinon : retourner un code d'erreur au client
 function checkUserPassword(user, res, next) {
-    console.log("... recherche name=", user.username, " password=", user.password);
+    console.log("... recherche name=", user.username, "email=", user.email, " password=", user.password);
     db.get(
-        'select 1 from user where username=? and password=?',
-        [user.username, user.password],
+        'select 1 from user where username=? and email=? and password=?',
+        [user.username, user.email, user.password],
         (err, row) => {
             console.log('check database');
             if (err) {
@@ -36,7 +36,7 @@ function checkUserPassword(user, res, next) {
 // vérifier que le body est bien formé lors de l'envoi d'un formulaire POST
 function checkBodyUser(req, res, next) {
     console.log("checkBodyUser....");
-    if (!req.body || !req.body.username || !req.body.password) {
+    if (!req.body || !req.body.username || !req.body.email || !req.body.password) {
         console.log("...body incorrect : ", req.body);
         res.status(422).end()
     } else {
@@ -49,6 +49,7 @@ function sendToken(req, res) {
     const user = req.body;
     const token = jwt.sign({
         username: user.username,
+        email: user.email,
         password: user.password
     }, 'secret', {expiresIn: '1h'});
     console.log("send token", token);
@@ -86,7 +87,6 @@ function verify(req, res, next) {
         })
 }
 
-// les routes valides du server
 router
     .post("/signin", checkBodyUser, (req, res, next) => {
         checkUserPassword(req.body, res, next)
@@ -105,7 +105,7 @@ router
                         res.status(403).end();
                     } else {
                         console.log("ok pour création : ", req.body.username);
-                        db.run('insert into user(username,password) values(?,?)', [req.body.username, req.body.password],
+                        db.run('insert into user(username,email,password) values(?,?,?)', [req.body.username, req.body.email, req.body.password],
                             (err) => {
                                 if (err) {
                                     console.log("err :: ", err);
