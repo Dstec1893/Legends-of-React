@@ -44,3 +44,13 @@ routes
                      (err, rows) => res.json(rows)
           );
 })
+
+    .get("/articles_tag/:tag", (req, res) => {
+
+    let myTag = req.params.tag;
+    
+    db.all(
+                     "SELECT article.* from article join article_tag on idArticle=article.id JOIN tag on idTag=tag.id WHERE tag.name = ?", [myTag],
+                     (err, rows) => res.json(rows)
+          );
+})
