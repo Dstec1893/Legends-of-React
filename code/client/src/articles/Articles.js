@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import Article from './../article/Article'
-import Articles_tag from './../articles_tag/Articles_tag'
 import ListArticles from './../ListArticles/listearticles'
 
 

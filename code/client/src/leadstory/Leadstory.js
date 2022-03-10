@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
-import Article from './../article/Article'
 import './Leadstory.css';
 
 export default function Leadstory() {
@@ -29,7 +29,7 @@ export default function Leadstory() {
 
     return (<div>
           {data.map( x =>  <article key={x.id}>
-                              <h1 className="Article_title">{x.title}</h1>
+                              <Link to={"/article/"+ x.id}> <h1 className="Article_title">{x.title}</h1></Link>
                               <section dangerouslySetInnerHTML={{__html: x.content}}></section>
                               {displayMedia(x.mediaType,x.mediaURL)}
                            </article>
