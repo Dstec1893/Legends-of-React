@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 import ListArticles from './../ListArticles/listearticles'
 
 
-export default function Articles() {
+export default function Articles_tag(){
+
+
+  let params = useParams();
+
 
   const [data, setData] = useState( [] );
 
   async function getArticles() {
-    const data = (await axios.get('http://localhost:8000/articles')).data;
+    const data = (await axios.get('http://localhost:8000/articles_tag/' + params.tag)).data;
     setData(data);
   }
 
@@ -18,9 +22,12 @@ export default function Articles() {
     getArticles()
    }, []);
 
-   return (
-      <ListArticles data={data}/>
-    );
+
+    return (
+      <ListArticles data={data}/>    
+      );
+
+
+
 
 }
-
