@@ -2,3 +2,103 @@
    display: inline-block;
    margin-left: 20px;  
  }
+
+ #intro{
+  position: absolute;
+  width: 330px;
+  height: 105px;
+  left: 22px;
+  top: 48px;
+  text-align: justify;
+}
+
+#separatorH{
+  position: absolute;
+  width: 159px;
+  height: 0px;
+  left: 28.5%;
+  top: 306px;
+
+  border: 1px solid #FFAA00;
+}
+
+.SDCH{
+  position: absolute;
+  width: 20%;
+  height: 10%;
+  left: 15%;
+  top: 305px;
+}
+
+#latest{
+  position: absolute;
+  width: 100px;
+  height: 22px;
+  left: 137px;
+  top: 314px;
+
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 13px;
+}
+
+.SDCH2{
+  position: absolute;
+  width: 20%;
+  height: 10%;
+  left: 65%;
+  top: 305px;
+}
+
+.imgPrev{
+  position: absolute;
+  width: 117px;
+  height: 101px;
+  left: 22px;
+  top: 372px;
+}
+
+.preview{
+  position: absolute;
+  overflow: hidden;
+  width: 215px;
+  height: 230px;
+  left: 147px;
+  top: 238px;
+}
+
+.title{
+  position: absolute;
+  font-size: 14px;
+  top: 124px;
+}
+
+.type{
+  position: absolute;
+  font-weight: lighter;
+  font-size: 12px;
+  top: 155px;
+  color: #FFAA00;
+}
+
+.sum{
+  position: absolute;
+  width: 215px;
+  font-size: 12px;
+  top: 175px;
+}
+
+  .prev1{
+    position: absolute;
+  }
+
+  .prev2{
+    position: absolute;
+    top: 115px;
+  }
+
+  .prev3{
+    position: absolute;
+    top: 230px;   
+  }

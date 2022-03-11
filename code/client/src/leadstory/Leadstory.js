@@ -28,6 +28,8 @@ export default function Leadstory() {
     }
 
     return (<div>
+
+        
           {data.map( x =>  <article key={x.id}>
                               <Link to={"/article/"+ x.id}> <h1 className="Article_title">{x.title}</h1></Link>
                               <section dangerouslySetInnerHTML={{__html: x.content}}></section>
