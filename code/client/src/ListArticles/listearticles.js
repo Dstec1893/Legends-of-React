@@ -32,7 +32,7 @@ function updateData(e) {
 
 	console.log(myData)
 	if (myNbPlayer.toUpperCase() != "ALL") {
-		myData = myData.filter( (article) =>  article.nbplayer == myNbPlayer)
+		myData = myData.filter( (article) =>  article.nbplayer == myNbPlayer.toUpperCase())
 	} 
 		
 	if (myType.toUpperCase() != "ALL") {
@@ -61,7 +61,7 @@ return (
         <option>Ireland</option>
         <option>Portugal</option>
         <option>Spain</option>
-        <option>United State</option>
+        <option>United Kingdom</option>
         <option>Italy</option>
       </select>
 
@@ -75,6 +75,7 @@ return (
         <option>7</option>
         <option>8</option>
         <option>9</option>
+        <option>+10</option>
       </select>
 
 
@@ -82,6 +83,7 @@ return (
       	<option>All</option>
         <option>CardGame</option>
         <option>BoardGame</option>
+        <option>OutdoorGame</option>
       </select>
 
 
