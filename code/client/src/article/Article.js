@@ -55,6 +55,9 @@ export default function Article() {
       <h1 className="Article_title">{art.title}</h1>
       <section dangerouslySetInnerHTML={{__html: art.content}}>
       </section>
+      <h1>{art.origin}</h1>
+      <h2>{art.nbplayer}</h2>
+      <h3>{art.type}</h3>
       {displayMedia2(art.mediaType, art.mediaURL)}
    </article>
     </div>);
