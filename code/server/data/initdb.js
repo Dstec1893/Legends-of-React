@@ -17,14 +17,7 @@ let query = [
 "DROP TABLE IF EXISTS article_tag",
 "DROP TABLE article",
 "DROP TABLE IF EXISTS tag",
-<<<<<<< HEAD
-"CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, thumbnailURL TEXT, mediaType TEXT, mediaURL TEXT, leadStory INTEGER, origin TEXT, nbplayer INTEGER, type TEXT)",
-"CREATE TABLE articles (id INTEGER PRIMARY KEY AUTOINCREMENT, thumbnailURL TEXT, mediaType TEXT, mediaURL TEXT)",
-"CREATE TABLE moreArticle (id INTEGER PRIMARY KEY AUTOINCREMENT, moreContent TEXT NOT NULL)",
-=======
-"DROP TABLE user",
 "CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, thumbnailURL TEXT, mediaType TEXT, mediaURL TEXT, leadStory INTEGER, origin TEXT, nbplayer TEXT, type TEXT, moreContent TEXT)",
->>>>>>> 00e86664bb4baa8447de041d33c43804fdf316a3
 "create table user(id integer primary key,username varchar,email varchar, password varchar)",
 "CREATE TABLE tag (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL)",
 "CREATE TABLE article_tag (id INTEGER PRIMARY KEY AUTOINCREMENT, idArticle INTEGER REFERENCES article(id), idTag INTEGER REFERENCES tag(id))",

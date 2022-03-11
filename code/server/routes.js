@@ -124,32 +124,6 @@ routes
                              (err, rows) => res.json(rows)
                   );
         })
-    .get("/article/:id", (req, res) => {
-
-    let myId = req.params.id;
-    
-    /*console.log(req.params);*/
-
-    /*let command = "select * from article where id = "+ myId;*/
-    
-    /*console.log(command);*/
-    
-    db.all(
-                     "select * from article where id = "+ myId,
-                     (err, rows) => res.json(rows)
-          );
-})
-
-    .get("/articles_tag/:tag", (req, res) => {
-
-    let myTag = req.params.tag;
-    
-    db.all(
-                     "SELECT article.* from article join article_tag on idArticle=article.id JOIN tag on idTag=tag.id WHERE tag.name = ?", [myTag],
-                     (err, rows) => res.json(rows)
-          );
-})
-
 
 
     
