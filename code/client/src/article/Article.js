@@ -51,13 +51,12 @@ export default function Article() {
 
     return (<div>
     <article key={art.id}>
-     <h1> Il y a plus d'information </h1>
       <h1 className="Article_title">{art.title}</h1>
+      <h1>Origin : {art.origin}</h1>
+      <h2>Number of player : {art.nbplayer}</h2>
+      <h3>Type : {art.type}</h3>
       <section dangerouslySetInnerHTML={{__html: art.content}}>
       </section>
-      <h1>{art.origin}</h1>
-      <h2>{art.nbplayer}</h2>
-      <h3>{art.type}</h3>
       {displayMedia2(art.mediaType, art.mediaURL)}
    </article>
     </div>);

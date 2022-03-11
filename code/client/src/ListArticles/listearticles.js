@@ -98,13 +98,12 @@ return (
 
           {data.map( x =>  <article  key={x.id}>
                               <Link to={"/article/"+ x.id}> <h1 className="Article_title">{x.title}</h1></Link>
+                              <h1>Origin : {x.origin}</h1>
+                              <h2>Number of player : {x.nbplayer}</h2>
+                              <h3>Type : {x.type}</h3>
                               <section dangerouslySetInnerHTML={{__html: x.content}}></section>
-                              <h1>{x.origin}</h1>
-                              <h2>{x.nbplayer}</h2>
-                              <h3>{x.type}</h3>
                               <button id={x.id} onClick={del}>Delete</button>
                               {displayMedia(x.mediaType,x.mediaURL)}
-                              
                            </article>
            )}
       </>
