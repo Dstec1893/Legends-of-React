@@ -84,7 +84,7 @@ return (
         <option>7</option>
         <option>8</option>
         <option>9</option>
-        <option>+10</option>
+        <option>More</option>
       </select>
 
 
