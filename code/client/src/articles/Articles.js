@@ -19,7 +19,7 @@ export default function Articles() {
    }, []);
 
    return (
-      <ListArticles data={data}/>
+      <ListArticles data={data} refresh={getArticles} />
     );
 
 }

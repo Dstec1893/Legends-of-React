@@ -7,8 +7,6 @@ import Articles_tag from './articles_tag/Articles_tag'
 import Login, {ProtectedRoute, NotProtectedLink} from "./Login";
 import Signup from "./Signup";
 import AddArticles from "./addArticles";
-import DeleteArticles from "./deleteArticles";
-import EditArticles from "./editArticles";
 import './App.css'
 
 
@@ -34,8 +32,6 @@ function App() {
         <Route exact={true} path="/login" element={<Login/>}/>
         <Route exact={true} path="/signup" element={<Signup/>}/>
         <Route exact={true} path="/addArticles" element={<ProtectedRoute><AddArticles/></ProtectedRoute>}/>
-        <Route exact={true} path="/deleteArticles" element={<ProtectedRoute><DeleteArticles/></ProtectedRoute>}/>
-        <Route exact={true} path="/editArticles" element={<ProtectedRoute><EditArticles/></ProtectedRoute>}/>
         <Route path="*" element={() => <p>Page Not Found</p>} />
       </Routes>
     </>
