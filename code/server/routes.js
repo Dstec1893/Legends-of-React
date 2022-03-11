@@ -31,6 +31,70 @@ routes
 
     })
 
+    .delete("/articles/:id", (req,res)=> {
+        db.all("delete from article where id=?"),[article.id],
+        (err, row) => {
+            if(err){
+                console.log("err: "+err)
+            }
+            else{
+                console.log("row: "+ row)
+            }
+        }
+    })
+
+    .post("/articles", (req,res) =>
+        {
+
+                let title = req.body.title 
+                let content = req.body.content
+                let thumbnailURL = req.body.content
+                let mediaType = req.body. mediaType
+                let mediaUrl = req.body.mediaUrl
+
+
+                db.run("INSERT INTO article (title, content, thumbnailURL, mediaType, mediaUrl) values (?,?,?,?,?)", 
+                [title, content, thumbnailURL, mediaType, mediaUrl], (err) =>
+                {
+                    if(err)
+                    {
+                    console.log("An Error has occured")
+                    return res.status(500).json(err);
+                    }
+                            console.log("successful")
+                            res.status(200).json({
+                            success: "true",
+                            message: "article successful",
+
+                    })
+                })
+        })
+
+        .get("/article/:id", (req, res) => {
+
+            let myId = req.params.id;
+            
+            /*console.log(req.params);*/
+        
+            /*let command = "select * from article where id = "+ myId;*/
+            
+            /*console.log(command);*/
+            
+            db.all(
+                             "select * from article where id = "+ myId,
+                             (err, rows) => res.json(rows)
+                  );
+        })
+        
+            .get("/articles_tag/:tag", (req, res) => {
+        
+            let myTag = req.params.tag;
+            
+            db.all(
+                             "SELECT article.* from article join article_tag on idArticle=article.id JOIN tag on idTag=tag.id WHERE tag.name = ?", [myTag],
+                             (err, rows) => res.json(rows)
+                  );
+        })
     .get("/article/:id", (req, res) => {
 
     let myId = req.params.id;
