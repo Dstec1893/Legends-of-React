@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+
 import axios from "axios"
 
 export default class AddArticles extends Component
@@ -67,6 +68,7 @@ export default class AddArticles extends Component
                 console.log("Record not added")
             }
         })
+
     }
 
 

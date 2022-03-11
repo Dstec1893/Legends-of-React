@@ -49,6 +49,15 @@ function updateData(e) {
   }, [props.data]);
 
 
+  async function del(event) {
+    let id = event.target.id
+    console.log("refresh begi")
+    const data = (await axios.delete('http://localhost:8000/articles/'+id)).data;
+    //setData(data);
+   props.refresh()
+  }
+
+
 return (
  <>
         <h1>
@@ -91,7 +100,9 @@ return (
                               <h1>{x.origin}</h1>
                               <h2>{x.nbplayer}</h2>
                               <h3>{x.type}</h3>
+                              <button id={x.id} onClick={del}>Delete</button>
                               {displayMedia(x.mediaType,x.mediaURL)}
+                              
                            </article>
            )}
       </>

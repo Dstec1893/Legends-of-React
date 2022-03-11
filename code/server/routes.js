@@ -32,16 +32,19 @@ routes
     })
 
     .delete("/articles/:id", (req,res)=> {
-        db.all("delete from article where id=?"),[article.id],
-        (err, row) => {
-            if(err){
-                console.log("err: "+err)
+        let id = req.params.id;
+
+        db.run("delete from article where id="+id,
+        (err) => {
+            if(err)
+            {
+            console.log("An Error has occured")
+            return res.status(500).json(err);
             }
-            else{
-                console.log("row: "+ row)
-            }
+                    console.log("successful")
+                    res.status(200).send()
         }
-    })
+    )})
 
     .post("/articles", (req,res) =>
         {
@@ -68,6 +71,32 @@ routes
 
                     })
                 })
+        })
+
+
+        .put("/articles/:id", (req,res) =>
+        {
+                let title = req.body.title 
+                let content = req.body.content
+                let thumbnailURL = req.body.content
+                let mediaType = req.body. mediaType
+                let mediaUrl = req.body.mediaUrl
+
+
+                db.run("UPDATE article SET(title, content, thumbnailURL, mediaType, mediaUrl) values (?,?,?,?,?)", 
+                [title, content,thumbnailURL, mediaType, mediaUrl], (err) =>
+                {
+                if(err)
+                {
+                   return res.status(500).json(err);
+                }
+                       res.json(200).json({
+                       success: "true",
+                       message: "article editing successful"
+
+
+               })
+               })
         })
 
         .get("/article/:id", (req, res) => {

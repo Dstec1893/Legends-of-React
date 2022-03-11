@@ -20,7 +20,7 @@ let query = [
 "CREATE TABLE article (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT NOT NULL, content TEXT NOT NULL, thumbnailURL TEXT, mediaType TEXT, mediaURL TEXT, leadStory INTEGER, origin TEXT, nbplayer INTEGER, type TEXT)",
 "CREATE TABLE articles (id INTEGER PRIMARY KEY AUTOINCREMENT, thumbnailURL TEXT, mediaType TEXT, mediaURL TEXT)",
 "CREATE TABLE moreArticle (id INTEGER PRIMARY KEY AUTOINCREMENT, moreContent TEXT NOT NULL)",
-"create table user(id integer primary key,username varchar,email varchar, password varchar);",
+"create table user(id integer primary key,username varchar,email varchar, password varchar)",
 "CREATE TABLE tag (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL)",
 "CREATE TABLE article_tag (id INTEGER PRIMARY KEY AUTOINCREMENT, idArticle INTEGER REFERENCES article(id), idTag INTEGER REFERENCES tag(id))",
 "INSERT INTO article (title, content, thumbnailURL, mediaType, mediaURL, origin, nbplayer, type) values ('Welcome to ecoal22', '<h1>Premier</h1><p>Nice to see you in <strong>Lens</strong>. Enjoy !</p>', 'ecoal.jpg', 'image', 'ecoal.jpg', 'FRANCE', 3, 'CARDGAME')",
